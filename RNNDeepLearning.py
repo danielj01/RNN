@@ -58,6 +58,8 @@ for input_example_batch, target_example_batch in data.take(1):
   example_batch_predictions = model(input_example_batch)
   print(example_batch_predictions.shape, "# (batch_size, sequence_length, vocab_size)")
   #Batch size is 64, sequence length is 100 charachters, vocabulary size is 65
+pred = example_batch_predictions[0]
+time_pred = pred[0]
 sampled_indices = tf.random.categorical(pred, num_samples=1)
 
 sampled_indices = np.reshape(sampled_indices, (1, -1))[0]
